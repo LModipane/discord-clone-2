@@ -1,7 +1,9 @@
+import { ThemeProviders } from '@/components/Providers';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,8 +16,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<ClerkProvider>
 			<html lang="en">
-				<body className={inter.className}>{children}</body>
+				<Providers>
+					<body
+						className={cn(
+							inter.className,
+							'dark:bg-[#313338] dark:text-white bg-white text-black',
+						)}>
+						{children}
+					</body>
+				</Providers>
 			</html>
 		</ClerkProvider>
 	);
 }
+
+type ProviderProps = {
+	children: React.ReactNode;
+};
+
+const Providers = ({ children }: ProviderProps) => {
+	return (
+		<>
+			<ThemeProviders
+				attribute="class"
+				defaultTheme=""
+				storageKey="discord-theme"
+				enableSystem={false}
+				disableTransitionOnChange>
+				{children}
+			</ThemeProviders>
+		</>
+	);
+};
