@@ -39,7 +39,7 @@ const InitialModel = () => {
 	const onSubmit = async (value: z.infer<typeof createServerFormSchema>) => {
 		try {
 			//post form data to api route that handles creating a new server
-			await axios.post('/api/create-servers', value);
+			await axios.post('/api/create-server', value);
 			//let reset the form, refresh page and refreash window so that we end back to the setup page
 			form.reset();
 			router.refresh();
@@ -100,7 +100,7 @@ const InitialModel = () => {
 							/>
 						</div>
 						<DialogFooter className="px-6 py-4 bg-gray-100">
-							<Button variant={'primary'} disabled={form.formState.isSubmitting} type="button">
+							<Button variant={'primary'} disabled={form.formState.isSubmitting} type="submit">
 								Create
 							</Button>
 						</DialogFooter>
