@@ -1,11 +1,17 @@
 'use client';
-import { CreateChannelModel, CreateServerModel, InvitePersonModel } from '@/components/Models';
+import {
+	CreateChannelModel,
+	CreateServerModel,
+	EditServerModel,
+	InvitePersonModel,
+} from '@/components/Models';
 
 const ModelProvider = () => {
 	return (
 		<>
-			<CreateServerModel />
 			<CreateChannelModel />
+			<CreateServerModel />
+			<EditServerModel />
 			<InvitePersonModel />
 		</>
 	);
