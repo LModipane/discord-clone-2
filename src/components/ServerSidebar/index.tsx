@@ -148,7 +148,7 @@ export default async function ServerSidebar({ serverId }: Props) {
 					<div className="mb-2">
 						<ServerSection sectionType="member" role={role} label=" Members" server={server} />
 						{members.map(member => (
-							<ServerMember key={member.id} />
+							<ServerMember key={member.id} member={member} />
 						))}
 					</div>
 				)}
