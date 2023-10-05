@@ -31,7 +31,7 @@ const LeaveServerModel = () => {
 	const onLeave = async () => {
 		try {
 			setIsLoading(true);
-			await axios.patch(`/api/servers/${server?.id}/leave`);
+			await axios.patch(`/api/leave-server/${server?.id}`);
 			router.refresh();
 			router.push('/');
 		} catch (error) {
