@@ -25,9 +25,11 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { useModel } from '@/hooks/useModelhook';
 
 const InitialModel = () => {
 	const router = useRouter();
+	const { isOpen, type, onClose } = useModel();
 	const form = useForm({
 		defaultValues: {
 			imageUrl: '',
@@ -36,19 +38,26 @@ const InitialModel = () => {
 		resolver: zodResolver(createServerFormSchema),
 	});
 
+	const isMounted = isOpen && type === 'create-server';
+
 	const onSubmit = async (value: z.infer<typeof createServerFormSchema>) => {
 		try {
 			//post form data to api route that handles creating a new server
 			await axios.post('/api/create-server', value);
 			//let reset the form, refresh page and refreash window so that we end back to the setup page
-			router.refresh();
-			window.location.reload();
+			handleClose();
 		} catch (error) {
 			console.log('Opps, failed to submit server!!!');
 		}
 	};
+
+	const handleClose = () => {
+		form.reset();
+		router.refresh();
+		onClose();
+	};
 	return (
-		<Dialog open>
+		<Dialog open={isMounted} onOpenChange={handleClose}>
 			<DialogContent className="p-0 overflow-hidden text-black bg-gray-50">
 				<DialogHeader className="px-6 pt-8">
 					<DialogTitle className="text-2xl font-bold text-center">Create Your Server</DialogTitle>

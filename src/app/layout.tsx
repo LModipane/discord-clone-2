@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import ModelProvider from '@/components/Providers/ModelProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -43,6 +44,7 @@ const Providers = ({ children }: ProviderProps) => {
 				storageKey="discord-theme"
 				enableSystem={false}
 				disableTransitionOnChange>
+				<ModelProvider />
 				{children}
 			</ThemeProviders>
 		</>

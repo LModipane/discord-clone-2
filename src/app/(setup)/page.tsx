@@ -1,14 +1,11 @@
-import { ThemeToggle } from '@/components';
-import { initializeProfile } from '@/lib/initialise-profile';
-import { redirectToSignIn } from '@clerk/nextjs';
-import db from '@/lib/db';
-import { redirect } from 'next/navigation';
 import { InitialModel } from '@/components/Models';
+import db from '@/lib/db';
+import { initializeProfile } from '@/lib/initialise-profile';
+import { redirect } from 'next/navigation';
 
 export default async function Home() {
 	//get users profile
 	const profile = await initializeProfile();
-	if (!profile) return redirectToSignIn();
 	//find server that users is appart of
 	const server = await db.server.findFirst({
 		where: {
