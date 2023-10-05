@@ -31,7 +31,7 @@ const LeaveServerModel = () => {
 	const onDelete = async () => {
 		try {
 			setIsLoading(true);
-			await axios.delete(`/api/servers/${server?.id}/delete`);
+			await axios.delete(`/api/delete-server/${server?.id}`);
 			router.refresh();
 			router.push('/');
 			onClose();
