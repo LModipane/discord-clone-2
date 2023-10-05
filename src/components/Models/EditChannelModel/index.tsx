@@ -66,7 +66,7 @@ const EditChannelModel = () => {
 		try {
 			//post form data to api route that handles creating a new server
 			const url = qs.stringifyUrl({
-				url: `/api/channels/${channel?.id}/edit`,
+				url: `/api/edit-channel/${channel?.id}`,
 				query: {
 					serverId: params?.serverId,
 				},
