@@ -6,7 +6,9 @@ type ModelType =
 	| 'create-channel'
 	| 'edit-server'
 	| 'edit-member'
-	| 'invite-person';
+	| 'invite-person'
+	| 'delete-server'
+	| 'leave-server';
 
 type ModelData = {
 	server?: Server;
