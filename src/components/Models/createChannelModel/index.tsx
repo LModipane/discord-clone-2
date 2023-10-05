@@ -2,9 +2,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
+import qs from 'query-string';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
-import qs from 'query-string';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -34,7 +34,6 @@ import {
 import { useModel } from '@/hooks/useModelhook';
 import { createChannelFormSchema } from '@/types/formschema';
 import { ChannelType } from '@prisma/client';
-import { Channel, channel } from 'diagnostics_channel';
 import { useEffect } from 'react';
 
 //this component is responsible for prompting the user create their own server with image and name

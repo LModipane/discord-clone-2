@@ -1,33 +1,33 @@
 'use client';
-import z from 'zod';
-import { useForm } from 'react-hook-form';
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import z from 'zod';
 
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { FileUploader } from '@/components';
+import { Button } from '@/components/ui/button';
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+} from '@/components/ui/dialog';
 import {
 	Form,
 	FormControl,
 	FormField,
 	FormItem,
-	FormMessage,
 	FormLabel,
+	FormMessage,
 } from '@/components/ui/form';
-import {
-	DialogTitle,
-	DialogHeader,
-	DialogFooter,
-	DialogDescription,
-	DialogContent,
-	Dialog,
-} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 
-import { createServerFormSchema } from '@/types/formschema';
 import { useModel } from '@/hooks/useModelhook';
+import { createServerFormSchema } from '@/types/formschema';
 
 //this component is responsible for prompting the user create their own server with image and name
 const EditServerModel = () => {

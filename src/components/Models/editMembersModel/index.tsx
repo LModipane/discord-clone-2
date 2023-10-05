@@ -34,9 +34,8 @@ import {
 	Loader2,
 	MoreVertical,
 	Shield,
-	ShieldAlert,
 	ShieldCheck,
-	ShieldQuestion,
+	ShieldQuestion
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import qs from 'query-string';

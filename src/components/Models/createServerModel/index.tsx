@@ -1,4 +1,5 @@
 'use client';
+import { FileUploader } from '@/components';
 import { Button } from '@/components/ui/button';
 import {
 	Dialog,
@@ -16,16 +17,15 @@ import {
 	FormLabel,
 	FormMessage,
 } from '@/components/ui/form';
-import { FileUploader } from '@/components';
 import { Input } from '@/components/ui/input';
 
+import { useModel } from '@/hooks/useModelhook';
 import { createServerFormSchema } from '@/types/formschema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useModel } from '@/hooks/useModelhook';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
 
 const InitialModel = () => {
 	const router = useRouter();
