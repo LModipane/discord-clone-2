@@ -41,7 +41,7 @@ const ServerSidebarHeader = ({ server, role }: Props) => {
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							className="text-indigo-600 dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer"
-							onClick={() => onOpen('createChannel')}>
+							onClick={() => onOpen('create-channel')}>
 							Create Channels
 							<PlusCircle className="ml-auto" />
 						</DropdownMenuItem>
@@ -51,7 +51,7 @@ const ServerSidebarHeader = ({ server, role }: Props) => {
 					<>
 						<DropdownMenuItem
 							className=" px-3 py-2 text-sm cursor-pointer"
-							onClick={() => onOpen('editServer', { server })}>
+							onClick={() => onOpen('edit-server', { server })}>
 							Server Settings
 							<Settings className="ml-auto" />
 						</DropdownMenuItem>

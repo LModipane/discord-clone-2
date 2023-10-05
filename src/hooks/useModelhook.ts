@@ -1,10 +1,11 @@
-import { Server } from '@prisma/client';
+import { ChannelType, Server } from '@prisma/client';
 import { create } from 'zustand';
 
-type ModelType = 'create-server' | 'invite-person';
+type ModelType = 'create-server' | 'invite-person' | 'create-channel' | 'edit-server';
 
 type ModelData = {
 	server?: Server;
+	channelType?: ChannelType;
 };
 
 type ModelStore = {
