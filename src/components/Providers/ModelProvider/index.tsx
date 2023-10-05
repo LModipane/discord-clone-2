@@ -19,8 +19,8 @@ const ModelProvider = () => {
 			<DeleteChannelModel />
 			<DeleteServerModel />
 			<EditChannelModel />
-			<EditServerModel />
 			<EditMembersModel />
+			<EditServerModel />
 			<InvitePersonModel />
 			<LeaveServerModel />
 		</>
