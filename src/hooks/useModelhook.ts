@@ -10,12 +10,16 @@ export type ModelType =
 	| 'delete-server'
 	| 'leave-server'
 	| 'edit-channel'
-	| 'delete-channel';
+	| 'delete-channel'
+	| 'delete-message'
+	| 'message-file';
 
 type ModelData = {
 	server?: Server;
 	channelType?: ChannelType;
 	channel?: Channel;
+	apiUrl?: string;
+	query?: Record<string, any>;
 };
 
 type ModelStore = {

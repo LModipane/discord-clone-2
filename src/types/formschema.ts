@@ -24,3 +24,7 @@ export const createChannelFormSchema = z.object({
 		}),
 	type: z.nativeEnum(ChannelType),
 });
+
+export const EditMessageFormSchema = z.object({
+	content: z.string().min(1),
+});

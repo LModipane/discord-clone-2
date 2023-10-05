@@ -1,4 +1,9 @@
-import { ThemeProviders, ModelProvider } from '@/components/Providers';
+import {
+	ThemeProviders,
+	ModelProvider,
+	SocketProvider,
+	QueryProvider,
+} from '@/components/Providers';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
@@ -43,8 +48,12 @@ const Providers = ({ children }: ProviderProps) => {
 				storageKey="discord-theme"
 				enableSystem={false}
 				disableTransitionOnChange>
-				<ModelProvider />
-				{children}
+				<SocketProvider>
+					<QueryProvider>
+						<ModelProvider />
+						{children}
+					</QueryProvider>
+				</SocketProvider>
 			</ThemeProviders>
 		</>
 	);

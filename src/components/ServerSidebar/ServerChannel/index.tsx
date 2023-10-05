@@ -33,6 +33,7 @@ const ServerChannel = ({ channel, server, role }: Props) => {
 		event.stopPropagation();
 		onOpen(action, { channel, server });
 	};
+	
 	return (
 		<button
 			className={cn(
