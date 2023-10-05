@@ -33,7 +33,7 @@ const DeleteChannelModel = () => {
 		try {
 			setIsLoading(true);
 			const url = qs.stringifyUrl({
-				url: `/api/channels/${channel?.id}/delete`,
+				url: `/api/delete-channel/${channel?.id}`,
 				query: {
 					serverId: server?.id,
 				},
