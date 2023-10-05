@@ -1,17 +1,24 @@
+import { Server } from '@prisma/client';
 import { create } from 'zustand';
 
-type ModelType = 'create-server';
+type ModelType = 'create-server' | 'invite-person';
+
+type ModelData = {
+	server?: Server;
+};
 
 type ModelStore = {
 	type: ModelType | null;
 	isOpen: boolean;
-	onOpen: (type: ModelType) => void;
+	data: ModelData;
+	onOpen: (type: ModelType, data?: ModelData) => void;
 	onClose: () => void;
 };
 
 export const useModel = create<ModelStore>(set => ({
 	type: null,
 	isOpen: false,
-	onOpen: (type: ModelType) => set({ isOpen: true, type: type }),
-	onClose: () => set({ isOpen: false, type: null }),
+	data: {},
+	onOpen: (type: ModelType, data: ModelData = {}) => set({ isOpen: true, type: type, data }),
+	onClose: () => set({ isOpen: false, type: null, data: {} }),
 }));

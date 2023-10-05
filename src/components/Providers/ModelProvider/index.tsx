@@ -1,11 +1,12 @@
 'use client';
-import { CreateServerModel } from '@/components/Models';
+import { CreateServerModel, InvitePersonModel } from '@/components/Models';
 import React from 'react';
 
 const ModelProvider = () => {
 	return (
 		<>
 			<CreateServerModel />
+			<InvitePersonModel />
 		</>
 	);
 };
