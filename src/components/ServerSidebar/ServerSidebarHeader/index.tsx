@@ -63,7 +63,7 @@ const ServerSidebarHeader = ({ server, role }: Props) => {
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							className="text-rose-500 px-3 py-2 text-sm cursor-pointer"
-							onClick={() => onOpen('deleteServer', { server })}>
+							onClick={() => onOpen('delete-server', { server })}>
 							Delete server
 							<Trash className="ml-auto" />
 						</DropdownMenuItem>

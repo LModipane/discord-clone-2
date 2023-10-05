@@ -119,7 +119,7 @@ const MembersMenu = ({ member, setSelectedId, server }: MembersMenuProps) => {
 			setSelectedId(memberId);
 
 			const url = qs.stringifyUrl({
-				url: `/api/members/${memberId}`,
+				url: `/api/edit-member/${memberId}`,
 				query: {
 					serverId: server?.id,
 				},
@@ -139,7 +139,7 @@ const MembersMenu = ({ member, setSelectedId, server }: MembersMenuProps) => {
 		try {
 			setSelectedId(memberId);
 			const url = qs.stringifyUrl({
-				url: `/api/members/${memberId}`,
+				url: `/api/edit-member/${memberId}`,
 				query: {
 					serverId: server?.id,
 				},
