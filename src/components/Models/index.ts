@@ -7,3 +7,4 @@ export { default as EditServerModel } from './EditServerModel';
 export { default as InitialModel } from './IntialModel';
 export { default as InvitePersonModel } from './InvitePersonModel';
 export { default as LeaveServerModel } from './LeaveServerModel';
+export { default as DeleteChannelModel } from './DeleteChannelModel';

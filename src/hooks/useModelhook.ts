@@ -9,7 +9,8 @@ export type ModelType =
 	| 'invite-person'
 	| 'delete-server'
 	| 'leave-server'
-	| 'edit-channel';
+	| 'edit-channel'
+	| 'delete-channel';
 
 type ModelData = {
 	server?: Server;
