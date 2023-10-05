@@ -57,7 +57,7 @@ const ServerSidebarHeader = ({ server, role }: Props) => {
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							className=" px-3 py-2 text-sm cursor-pointer"
-							onClick={() => onOpen('members', { server })}>
+							onClick={() => onOpen('edit-member', { server })}>
 							Manage Members
 							<Users className="ml-auto" />
 						</DropdownMenuItem>
