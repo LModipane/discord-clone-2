@@ -20,6 +20,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { roleMap } from '@/constants/icon-maps';
 
 import { useModel } from '@/hooks/useModelhook';
 import { cn } from '@/lib/utils';
@@ -40,12 +41,6 @@ import {
 import { useRouter } from 'next/navigation';
 import qs from 'query-string';
 import { useState } from 'react';
-
-export const roleIconMap = {
-	ADMIN: <ShieldAlert className="h-4 w-4 text-rose-500" />,
-	MODERATOR: <ShieldCheck className="h-4 w-4" />,
-	GUEST: null,
-};
 
 //this component is responsible for prompting the user create their own server with image and name
 const ManageMembersModel = () => {
@@ -73,7 +68,7 @@ const ManageMembersModel = () => {
 							<div className="flex flex-col gap-y-1">
 								<div className="text-xs font-semibold flex items-center gap-x-1">
 									{member.profile.name}
-									{roleIconMap[member.role]}
+									{roleMap[member.role]}
 								</div>
 								<p className="text-xs text-zinc-500">{member.profile.email}</p>
 							</div>

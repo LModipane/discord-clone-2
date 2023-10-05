@@ -3,6 +3,7 @@ import {
 	CreateChannelModel,
 	CreateServerModel,
 	DeleteServerModel,
+	EditChannelModel,
 	EditMembersModel,
 	EditServerModel,
 	InvitePersonModel,
@@ -15,6 +16,7 @@ const ModelProvider = () => {
 			<CreateChannelModel />
 			<CreateServerModel />
 			<DeleteServerModel />
+			<EditChannelModel />
 			<EditServerModel />
 			<EditMembersModel />
 			<InvitePersonModel />
