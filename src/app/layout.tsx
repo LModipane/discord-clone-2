@@ -1,10 +1,9 @@
-import { ThemeProviders } from '@/components/Providers';
+import { ThemeProviders, ModelProvider } from '@/components/Providers';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import ModelProvider from '@/components/Providers/ModelProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
