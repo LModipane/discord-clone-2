@@ -5,6 +5,7 @@ import { MemberRole } from '@prisma/client';
 import { NextApiRequest } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponseServerIo) {
+	console.log('Hello');
 	try {
 		if (req.method !== 'DELETE' && req.method !== 'PATCH')
 			return res.status(405).json({ error: 'BAD REQUEST' });

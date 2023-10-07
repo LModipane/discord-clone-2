@@ -1,7 +1,7 @@
 'use client';
 import { UserAvatar, ActionTooltip } from '@/components';
 import { Button } from '@/components/ui/button';
-import { FormField, FormItem } from '@/components/ui/form';
+import { FormField, FormItem, Form } from '@/components/ui/form';
 import { roleMap } from '@/constants/icon-maps';
 import { useModel } from '@/hooks/useModelhook';
 import { cn } from '@/lib/utils';
@@ -12,7 +12,7 @@ import axios from 'axios';
 import { Edit, Trash, File } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { useForm, Form } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
@@ -84,6 +84,7 @@ const ChatItem = ({
 	}, []);
 
 	const onSubmit = async (value: z.infer<typeof EditMessageFormSchema>) => {
+		console.log('Hello from onSubmit');
 		try {
 			const url = qs.stringifyUrl({
 				url: `${socketUrl}/${id}`,
@@ -91,6 +92,7 @@ const ChatItem = ({
 			});
 
 			await axios.patch(url, value);
+
 			setIsEditing(false);
 			form.reset();
 		} catch (error) {
