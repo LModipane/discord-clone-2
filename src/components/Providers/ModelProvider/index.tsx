@@ -4,6 +4,7 @@ import {
 	CreateChannelModel,
 	CreateServerModel,
 	DeleteChannelModel,
+	DeleteMessageModel,
 	DeleteServerModel,
 	EditChannelModel,
 	EditMembersModel,
@@ -18,6 +19,7 @@ const ModelProvider = () => {
 			<CreateChannelModel />
 			<CreateServerModel />
 			<DeleteChannelModel />
+			<DeleteMessageModel />
 			<DeleteServerModel />
 			<EditChannelModel />
 			<EditMembersModel />
