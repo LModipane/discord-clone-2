@@ -3,11 +3,12 @@ import { useChatQuery } from '@/hooks/chat-query-hook';
 import { MessageWithMemberWithProfile } from '@/types';
 import { Member } from '@prisma/client';
 import { Hash, Loader2, ServerCrash } from 'lucide-react';
-import React, { Fragment } from 'react';
+import React, { ElementRef, Fragment, useRef } from 'react';
 import ChatItem from './ChatItem';
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@/constants/data-formate';
 import { useChatSocket } from '@/hooks/chat-socket-hook';
+import { useChatScroll } from '@/hooks/chat-scroll-hook';
 
 type Props = {
 	name: string;
@@ -44,6 +45,16 @@ const ChatMessage = ({
 		queryKey,
 	});
 
+	const chatRef = useRef<ElementRef<'div'>>(null);
+	const bottomRef = useRef<ElementRef<'div'>>(null);
+	useChatScroll({
+		chatRef,
+		bottomRef,
+		loadMore: fetchNextPage,
+		shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
+		count: data?.pages?.[0]?.items?.length ?? 0,
+	});
+
 	if (status === 'loading') {
 		return (
 			<div className="flex flex-col items-center justify-center flex-1 gap-y-3">
@@ -63,8 +74,23 @@ const ChatMessage = ({
 	}
 
 	return (
-		<div className="flex flex-col flex-1 py-4 overflow-x-auto">
-			<ChatWelcome type={type} name={name} />
+		<div ref={chatRef} className="flex flex-col flex-1 py-4 overflow-x-auto">
+			{!hasNextPage && <div className="flex-1"></div>}
+			{!hasNextPage && <ChatWelcome type={type} name={name} />}
+			{hasNextPage && (
+				<div className="flex justify-center">
+					{isFetchingNextPage ? (
+						<Loader2 className="w-6 h-6 my-4 text-zinc-500 animate-spin" />
+					) : (
+						<button
+							onClick={() => fetchNextPage()}
+							className="my-4 text-xs transition text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300">
+							load previous message
+						</button>
+					)}
+				</div>
+			)}
+
 			<div className="flex flex-col-reverse">
 				{data?.pages?.map((group, i) => (
 					<Fragment key={i}>
@@ -86,6 +112,7 @@ const ChatMessage = ({
 					</Fragment>
 				))}
 			</div>
+			<div ref={bottomRef} />
 		</div>
 	);
 };
@@ -99,7 +126,7 @@ type ChatWelcomeProps = {
 
 const ChatWelcome = ({ name, type }: ChatWelcomeProps) => {
 	return (
-		<div className="px-4 mb-4 space-y-2 mt-auto">
+		<div className="px-4 mt-auto mb-4 space-y-2">
 			{type === 'channel' && (
 				<div className="h-[75px] w-[75px] rounded-full bg-zinc-500 dark:bg-zinc-700 flex items-center justify-center">
 					<Hash className="w-12 h-12 text-white" />

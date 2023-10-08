@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
-import { Plus, Smile } from 'lucide-react';
+import { Plus, Send, Smile } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import qs from 'query-string';
 import axios from 'axios';
@@ -56,7 +56,7 @@ const ChatInput = ({ apiUrl, name, query, type }: Props) => {
 					render={({ field }) => (
 						<FormItem>
 							<FormControl>
-								<div className="relative p-4 pb-6">
+								<div className="relative p-4 pb-6 mr-14">
 									<button
 										onClick={() => onOpen('message-file', { apiUrl, query })}
 										type="button"
@@ -73,6 +73,9 @@ const ChatInput = ({ apiUrl, name, query, type }: Props) => {
 										<EmojiePicker
 											onChange={(emojie: string) => field.onChange(`${field.value} ${emojie}`)}
 										/>
+									</div>
+									<div className="absolute flex items-center justify-center p-3 transition rounded-full -right-10 top-5 bg-zinc-500 dark:zinc-400 hover:bg-zinc-600 dark:hover:bg-zinc-400 dark:hover:text-white">
+										<Send className="w-6 h-6 " />
 									</div>
 								</div>
 							</FormControl>
