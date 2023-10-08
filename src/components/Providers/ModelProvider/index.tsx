@@ -11,6 +11,7 @@ import {
 	EditServerModel,
 	InvitePersonModel,
 	LeaveServerModel,
+	MessageFileModel,
 } from '@/components/Models';
 
 const ModelProvider = () => {
@@ -26,6 +27,7 @@ const ModelProvider = () => {
 			<EditServerModel />
 			<InvitePersonModel />
 			<LeaveServerModel />
+			<MessageFileModel />
 		</>
 	);
 };

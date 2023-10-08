@@ -28,3 +28,9 @@ export const createChannelFormSchema = z.object({
 export const EditMessageFormSchema = z.object({
 	content: z.string().min(1),
 });
+
+export const fileUrlFormSchema = z.object({
+	fileUrl: z.string().min(MINIMIUM_SERVER_IMAGE_URL_LENGTH, {
+		message: `Attachment is required`,
+	}),
+});

@@ -74,9 +74,11 @@ const ChatInput = ({ apiUrl, name, query, type }: Props) => {
 											onChange={(emojie: string) => field.onChange(`${field.value} ${emojie}`)}
 										/>
 									</div>
-									<div className="absolute flex items-center justify-center p-3 transition rounded-full -right-10 top-5 bg-zinc-500 dark:zinc-400 hover:bg-zinc-600 dark:hover:bg-zinc-400 dark:hover:text-white">
+									<button
+										type="submit"
+										className="absolute flex items-center justify-center p-3 transition rounded-full -right-10 top-5 bg-zinc-500 dark:zinc-400 hover:bg-zinc-600 dark:hover:bg-zinc-400 dark:hover:text-white">
 										<Send className="w-6 h-6 " />
-									</div>
+									</button>
 								</div>
 							</FormControl>
 						</FormItem>

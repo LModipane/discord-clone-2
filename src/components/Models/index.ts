@@ -9,3 +9,4 @@ export { default as InitialModel } from './intialModel';
 export { default as InvitePersonModel } from './invitePersonModel';
 export { default as LeaveServerModel } from './leaveServerModel';
 export { default as DeleteMessageModel } from './DeleteMessageModel';
+export { default as MessageFileModel } from './messageFileModel';
